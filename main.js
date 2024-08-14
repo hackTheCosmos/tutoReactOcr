@@ -1,12 +1,30 @@
-// "composant fonction" React (nom commence obligatoireemnt par une lettre majuscule). Fonction qui retourne un élément React. Avant les composants React était des classes mais ce n'est plus le cas aujourd'hui
-function MyComponent() {
-    return <div>Mon 1er composant</div>
+
+//Banner
+function Banner () {
+    const title = "la maison jungle"
+    return ( 
+        <h1>{title.toUpperCase()}</h1>   
+    )
 }
 
-//composant Header
-const Header = () => {
-    return <h1>La maison jungle</h1>
+//Cart 
+function Cart() {
+    let monsteraPrice = 8
+    let lierrePrice = 10
+    let bouquetPrice = 15
+    let cartTotal = monsteraPrice + lierrePrice + bouquetPrice
+    return (
+        <div>
+            <h2>Panier</h2>
+            <ul>
+                <li>monstera {monsteraPrice}€</li>
+                <li>lierre {lierrePrice}€</li>
+                <li>bouquet {bouquetPrice}€</li>
+            </ul>
+            <p>Total : {cartTotal}€</p>
+        </div>
+    )
 }
 
-// injection d'un composant dans le DOM
-ReactDOM.render(<Header/>, document.getElementById("root"))
+// injection des composants dans le DOM
+ReactDOM.render(<React.Fragment><Banner/><Cart/></React.Fragment>, document.getElementById("root"))
